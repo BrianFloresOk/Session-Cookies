@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<% if(session.user !== undefined) { %>
+    <% if (session.user.color === "red") { %>
+        <body style="background-color: red">
+    <% } %> 
+
+    <% if (session.user.color === "blue") { %>
+        <body style="background-color: blue">
+    <% } %> 
+
+    <% if (session.user.color === "gold") { %>
+        <body style="background-color: gold">
+    <% } %> 
+<% } %>
+<body>
+     <% if(session.user === undefined) { %> 
+        <h1>Formulario</h1>
+    <% } else { %>
+        <div class="saludo">
+            <h1>Hola <%= session.user.nombre %></h1>
+            <p>Elegiste el color: <%= session.user.color%> </p>
+            <p>Tu email es: <%= session.user.email%> </p>
+            <p>Tu edad es: <%= session.user.edad%> </p>
+        </div>
+        <div>
+            <a href="/olvidar"><button>Olvidar color</button></a>
+        </div>
+        <% } %>
+    <main>
+        <form action="/login" method="post">
+            <div class="inputs">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre">
+                <small class="error"><%= locals.errors && errors.nombre? errors.nombre.msg : ""%></small>
+            </div>
+            <div class="inputs">
+                <label for="edad">Edad</label>
+                <input type="number" name="edad">
+                <small class="error"><%= locals.errors && errors.edad? errors.edad.msg : ""%></small>
+            </div>
+            <div class="inputs">
+                <label for="email">Email</label>
+                <input type="email" name="email">
+                <small class="error"><%= locals.errors && errors.email? errors.email.msg : ""%></small>
+            </div>
+            <div class="inputs">
+                <select name="color" id="color">
+                    <option value="" hidden>Elija un color</option>
+                    <option value="blue">Azul</option>
+                    <option value="gold">Oro</option>
+                    <option value="red">Rojo</option>
+                </select>
+                <small class="error"><%= locals.errors && errors.color? errors.color.msg : ""%></small>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" name="rememberColor" id="rememberColor">
+                <label for="rememberColor">Recordar color</label>
+            </div>
+            <div class="button__container">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

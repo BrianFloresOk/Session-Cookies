@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.saludo {
+    margin: 0 auto;
+    padding: 20px;
+    width: 50%;
+}
+
+form {
+    width: 50%;
+    margin: 0 auto;
+    background: lightgrey;
+}
+
+form .inputs {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 10px auto;
+}
+
+.inputs input {
+    border: none;
+    height: 25px;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 0px 10px;
+    margin-bottom: 5px;
+}
+
+.inputs select {
+    height: 25px;
+    border: none;
+    border-radius: 4px;
+    margin: 10px 0px;
+    padding: 0px 10px;
+}
+
+.button__container {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button__container button {
+    width: 100%;
+    background-color: midnightblue;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.checkbox {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.error {
+    color: tomato;
+    font-style: italic;
+}
